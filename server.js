@@ -23,7 +23,7 @@ var configTMP = {
 /*
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://danieriraul-be936.firebaseio.com"
+  databaseURL: "https://flora-fe583.firebaseio.com"
 });*/
 admin.initializeApp(configTMP);
 
