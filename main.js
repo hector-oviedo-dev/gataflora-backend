@@ -9,21 +9,20 @@ var setDB = function(data) {
 	db = data;
 }
 
-var sendMsg = function(uid, token, msg) {
+var sendMsg = function(registrationToken, msg) {
 	var notification = {
-			"uid":uid,
-			"token":token,
+			"token":registrationToken,
 			"msg":msg,
 			"TIME":new Date()
 		}
 		db.collection("notifications").insertOne(notification, function (err, response) {
 			if (err) console.log("Error Adding: " + err);
 			else {
-				sendToSingle(db, token, msg);
+				sendToSingle(db, registrationToken, msg);
 			}
 		});
 };
-var sendToSingle = function(db, token, msg) {
+var sendToSingle = function(db, registrationToken, msg) {
 	var message = {
 	  android: {
 		ttl: 60 * 1000,
@@ -35,16 +34,16 @@ var sendToSingle = function(db, token, msg) {
 		  color: '#f45342'
 		}
 	  },
-	  token: token
+	  token: registrationToken
 	};
 	try {
 		admin.messaging().send(message)
 		  .then((response) => {
 			// Response is a message ID string.
-			console.log('MESSAGE SENT TOKEN:',token);
+			console.log('MESSAGE SENT TOKEN:',registrationToken);
 		  })
 		  .catch((error) => {
-			console.log('ERROR TOKEN:',token,'Firebase (possible disconnected)');
+			console.log('ERROR TOKEN:',registrationToken,'Firebase (possible disconnected)');
 		  });
 		  
 	} catch (e) { console.log('ERROR on send notification', e); }
