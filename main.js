@@ -78,8 +78,7 @@ var getError = function(msg) {
       ],
       display: {
         action:"postNewData",
-        label_submit:"Agregar",
-        label_cancel:"Cerrar"
+        label_submit:"Aceptar"
       }
       };
 	  
@@ -240,8 +239,7 @@ var getExample = function() {
       ],
       display: {
         action:"postNewData",
-        label_submit:"Agregar",
-        label_cancel:"Cerrar"
+        label_submit:"Aceptar"
       }
       };
 	  
