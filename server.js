@@ -9,6 +9,8 @@ var mongo = require('mongodb');
 var admin = require("firebase-admin");
 var app = express();
 
+var bodyParser = require('body-parser')
+
 //HEROKU parche
 app.use(express.static(__dirname + '/public'));
 
@@ -21,15 +23,12 @@ admin.initializeApp({
   databaseURL: 'flora-fe583.firebaseio.com'
 });
 
-
-//INDEX
-app.get('/', function(request, response) {
-  response.send('GATA FLORA: Si se la ponen, GRITA, si se la sacan, LLORA');
-});
-
 //start the server
 var init = function(db) {
 	app.use(cors());
+	
+	app.use( bodyParser.json());
+	app.use(bodyParser.urlencoded({extended: true})); 
 	
 	MAIN.setDB(db);
 	//body parser
@@ -47,6 +46,11 @@ var init = function(db) {
 	//get FLORA
 	var getFlora = require('./services/getflora');
 	app.use('/', getFlora);
+	
+	//INDEX
+	app.get('/', function(request, response) {
+	  response.send('GATA FLORA: Si se la ponen, GRITA, si se la sacan, LLORA');
+	});
 	
 	//start HTTP server
 	//http.createServer(app).listen(port, function() { console.log('Server HTTP Started at port ' + port); });

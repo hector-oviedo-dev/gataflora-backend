@@ -4,7 +4,6 @@ var mongo = require('mongodb');
 var express = require('express');
 var router = express.Router();
 
-
 router.post('/updatetoken', function(req, res, next) {
 	var uid = req.body.uid;
 	var token = req.body.token;

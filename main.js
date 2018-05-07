@@ -9,18 +9,20 @@ var setDB = function(data) {
 	db = data;
 }
 
-var sendMsg = function(registrationToken, msg) {
+var sendMsg = function(registrationToken, msg, res) {
 	var notification = {
 			"token":registrationToken,
 			"msg":msg,
 			"TIME":new Date()
 		}
 		db.collection("notifications").insertOne(notification, function (err, response) {
-			if (err) console.log("Error Adding: " + err);
-			else sendToSingle(db, response.token, response.msg);
+			if (err){
+				console.log("Error Adding: " + err);
+				res.json(getError(err))
+			} else sendToSingle(db, response.token, response.msg, res);
 		});
 };
-var sendToSingle = function(db, registrationToken, msg) {
+var sendToSingle = function(db, registrationToken, msg, res) {
 	var message = {
 		notification: {
 		  title: "Flora",
@@ -36,12 +38,17 @@ var sendToSingle = function(db, registrationToken, msg) {
 		  .then((response) => {
 			// Response is a message ID string.
 			console.log('MESSAGE SENT TOKEN:',registrationToken);
+			res.json(getError('MESSAGE SENT TOKEN: ' + registrationToken))
 		  })
 		  .catch((error) => {
 			console.log('ERROR TOKEN:',registrationToken,'Firebase (possible disconnected)');
+			res.json(getError('ERROR TOKEN:' + registrationToken + 'Firebase (possible disconnected)'));
 		  });
 		  
-	} catch (e) { console.log('ERROR on send notification', e); }
+	} catch (e) {
+		console.log('ERROR on send notification', e);
+		res.json(getError(e));
+	}
 }
 
 var getError = function(msg) {
