@@ -49,7 +49,9 @@ var sendToSingle = function(db, token, msg) {
 	} catch (e) { console.log('ERROR on send notification'); }
 }
 
-
+var getError = function() {
+	
+}
 var getExample = function() {
 	var form = {
        type:"form",

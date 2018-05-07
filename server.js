@@ -12,9 +12,6 @@ var app = express();
 
 var MAIN = require('./main');
 
-var socket;
-var clients = [];
-
 var serviceAccount = require('./flora-fe583-firebase-adminsdk-4simn-9954af01f6.json');
 
 admin.initializeApp({
