@@ -40,9 +40,13 @@ var init = function(db) {
 	var updateToken = require('./services/updatetoken');
 	app.use('/', updateToken);
 	
-	//get package
+	//send notification
 	var sendNotification = require('./services/sendnotification');
 	app.use('/', sendNotification);
+	
+	//get FLORA
+	var getFlora = require('./services/getflora');
+	app.use('/', getFlora);
 	
 	//start HTTP server
 	http.createServer(app).listen(port, function() { console.log('Server HTTPS Started at port ' + port); });
