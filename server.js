@@ -44,6 +44,10 @@ var init = function(db) {
 	var getFlora = require('./services/getflora');
 	app.use('/', getFlora);
 	
+	//get GATA
+	var getGata = require('./services/getgata');
+	app.use('/', getGata);
+	
 	//INDEX
 	app.get('/', function(request, response) {
 	  response.send('GATA FLORA: Si se la ponen, GRITA, si se la sacan, LLORA');
