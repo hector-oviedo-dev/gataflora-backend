@@ -1,4 +1,4 @@
-var port = process.env.app_port || process.env.port || 5000;
+var port = process.env.PORT || 8080;
 
 //require libs
 //var http = require('http');
