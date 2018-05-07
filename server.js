@@ -15,17 +15,12 @@ var MAIN = require('./main');
 var socket;
 var clients = [];
 
-var configTMP = {
-  apiKey: "AIzaSyBtvugBgochyN0v2OTusN2mpvsYJucX8xs",
-  authDomain: "flora-fe583.firebaseapp.com",
-  databaseURL: "https://flora-fe583.firebaseio.com"
-};
-/*
+var serviceAccount = require('./flora-fe583-firebase-adminsdk-4simn-9954af01f6.json');
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://flora-fe583.firebaseio.com"
-});*/
-admin.initializeApp(configTMP);
+  databaseURL: 'flora-fe583.firebaseio.com'
+});
 
 //start the server
 var init = function(db) {
