@@ -47,7 +47,7 @@ var sendToSingle = function(db, token, msg) {
 			console.log('ERROR TOKEN:',token,'Firebase (possible disconnected)');
 		  });
 		  
-	} catch (e) { console.log('ERROR on send notification': e); }
+	} catch (e) { console.log('ERROR on send notification', e); }
 }
 
 var getError = function(msg) {
