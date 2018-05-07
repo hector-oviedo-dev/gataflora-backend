@@ -24,18 +24,15 @@ var sendMsg = function(registrationToken, msg) {
 };
 var sendToSingle = function(db, registrationToken, msg) {
 	var message = {
-	  android: {
-		ttl: 60 * 1000,
-		priority: 'high',
 		notification: {
 		  title: "Flora",
-		  body: msg,
-		  icon: 'stock_ticker_update',
-		  color: '#f45342'
-		}
+		  body: msg
 	  },
 	  token: registrationToken
 	};
+	
+	console.log("trying to send notification token:",registrationToken,"msg:",msg);
+	
 	try {
 		admin.messaging().send(message)
 		  .then((response) => {
