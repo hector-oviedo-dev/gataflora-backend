@@ -38,15 +38,16 @@ var sendToSingle = function(db, token, msg) {
 	  token: token
 	};
 	try {
-	admin.messaging().send(message)
-	  .then((response) => {
-		// Response is a message ID string.
-		console.log('MESSAGE SENT TOKEN:',token);
-	  })
-	  .catch((error) => {
-		console.log('ERROR TOKEN:',token,'Firebase (this UID is possible disconnected)');
-	  });
-	} catch (e) { console.log('ERROR on send notification'); }
+		admin.messaging().send(message)
+		  .then((response) => {
+			// Response is a message ID string.
+			console.log('MESSAGE SENT TOKEN:',token);
+		  })
+		  .catch((error) => {
+			console.log('ERROR TOKEN:',token,'Firebase (possible disconnected)');
+		  });
+		  
+	} catch (e) { console.log('ERROR on send notification': e); }
 }
 
 var getError = function(msg) {
