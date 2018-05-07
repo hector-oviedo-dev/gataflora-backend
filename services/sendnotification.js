@@ -11,11 +11,7 @@ router.post('/sendnotification', function(req, res, next) {
 	
 	MAIN.sendMsg(uid, token, msg);
 	
-	var response = MAIN.getExample();
-	
-	res.json(response);
-	
-	console.log("sendnotification:", req.body.uid);
+	res.json({"message":"trying to send notification","uid":uid,"token":token,"msg":msg});
 });
 
 module.exports = router;

@@ -9,6 +9,8 @@ router.post('/updatetoken', function(req, res, next) {
 	var uid = req.body.uid;
 	var token = req.body.token;
 	
+	var sample = MAIN.getExample();
+	
 	if (!uid || uid == "undefined" || uid == "null" || uid == ""
 	|| !token || token == "undefined" || token == "null" || token == "") {
 		res.json({"success":"error","errorMessage":"Error Invalid Data"});
@@ -22,7 +24,9 @@ router.post('/updatetoken', function(req, res, next) {
 					duplicateResult.TOKEN = token;
 					users.save(duplicateResult);
 					console.log("TOKEN UPDATED",token)
-					res.json({"success":"ok","devices":duplicateResult.uid,"type":"update"});
+					
+					res.json(sample);
+					
 				} else {
 					var data = {
 						"uid":uid,
@@ -30,7 +34,7 @@ router.post('/updatetoken', function(req, res, next) {
 					}
 					users.insertOne(data, function (err, response) {
 						if (err) res.json({"success":"error","errorMessage":"Error Adding: " + err});
-						else res.json({"success":"ok","uid":uid,"type":"add"});
+						else res.json(sample);
 					});
 				}
 			}
