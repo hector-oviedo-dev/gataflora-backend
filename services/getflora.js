@@ -10,8 +10,6 @@ router.post('/getflora', function(req, res, next) {
 	var msg = req.body.msg;
 	console.log("GetFLORA");
 	
-	MAIN.sendMsg(uid, token, msg);
-	
 	res.json(createExample());
 });
 
