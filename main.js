@@ -11,7 +11,7 @@ var setDB = function(data) {
 
 var sendMsg = function(registrationToken, msg, res) {
 	var notification = {
-			"sound":"default"
+			"sound":"default",
 			"token":registrationToken,
 			"msg":msg,
 			"TIME":new Date()
