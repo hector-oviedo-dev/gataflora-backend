@@ -13,7 +13,8 @@ router.post('/updatetoken', function(req, res, next) {
 	
 	if (!uid || uid == "undefined" || uid == "null" || uid == ""
 	|| !token || token == "undefined" || token == "null" || token == "") {
-		var err = "NEED valid TOKEN & valid UID, got: UID: " + uid + " TOKEN: " + token;
+		var err = "Err: UID: " + uid + " TOKEN: " + token;
+		console.log(err);
 		res.json(MAIN.getError(err));
 	} else {
 		var db = MAIN.getDB();
@@ -33,8 +34,13 @@ router.post('/updatetoken', function(req, res, next) {
 						"token":token
 					}
 					users.insertOne(data, function (err, response) {
-						if (err) res.json(MAIN.getError(err));
-						else res.json(sample);
+						if (err) {
+							console.log("Err:",err);
+							res.json(MAIN.getError(err));
+						} else {
+							console.log("TOKEN ADDED");
+							res.json(sample);
+						}
 					});
 				}
 			}
