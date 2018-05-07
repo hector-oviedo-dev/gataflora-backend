@@ -10,7 +10,9 @@ router.post('/getflora', function(req, res, next) {
 	var msg = req.body.msg;
 	console.log("GetFLORA");
 	
-	res.json(createExample());
+	var response = createExample();
+	
+	res.json(response);
 });
 
 var createExample = function() {
@@ -167,9 +169,13 @@ var createExample = function() {
         label_cancel:"Cerrar"
       }
       };
-      let sections = [];
+	  
+      var sections = [];
       sections.push(form);
 
-      return res = { success:true, json: { sections:sections } };
+      var res = { success:true, json: { sections:sections } };
+	  
+	  return res;
+}
 
 module.exports = router;
