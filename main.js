@@ -117,7 +117,21 @@ var getExample2 = function() {
            "type":"TEXT",
            "align":"CENTER",
            "label":"Volver a GetFlora"
-         }
+         },
+         {
+          "id":"NAME",
+          "type":"INPUT",
+          "value":"",
+          "input_type":"TEXT",
+          "hidden":false,
+          "enabled":true,
+          "required":true,
+          "txt_required":"Debe ingresar su nombre.",
+          "max":15,
+          "min":5,
+          "label":"Nombre",
+          "placeholder":"Ingrese su Nombre"
+        },
       ],
       display: {
         action:"getflora",
