@@ -1,4 +1,4 @@
-var port = process.env.app_port || 777;
+var port = process.env.app_port || process.env.port || 777;
 //var socketport = process.env.app_port || 666;
 
 //require libs
