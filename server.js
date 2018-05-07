@@ -27,8 +27,10 @@ admin.initializeApp({
 var init = function(db) {
 	app.use(cors());
 	
-	app.use( bodyParser.json());
-	app.use(bodyParser.urlencoded({extended: true})); 
+	app.configure(function(){
+	  app.use(express.bodyParser());
+	  app.use(app.router);
+	});
 	
 	MAIN.setDB(db);
 	//body parser

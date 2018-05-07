@@ -11,6 +11,7 @@ var setDB = function(data) {
 
 var sendMsg = function(registrationToken, msg, res) {
 	var notification = {
+			"sound":"default"
 			"token":registrationToken,
 			"msg":msg,
 			"TIME":new Date()
@@ -79,7 +80,47 @@ var getError = function(msg) {
          }
       ],
       display: {
-        action:"postNewData",
+        action:"getflora",
+        label_submit:"Aceptar"
+      }
+      };
+	  
+      var sections = [];
+      sections.push(form);
+
+      var res = { success:true, json: { sections:sections } };
+	  
+	  return res;
+}
+var getExample2 = function() {
+	var form = {
+       type:"form",
+       controls: [
+         {
+           "type":"IMAGE",
+           "source":"http://www.catster.com/wp-content/uploads/2017/12/A-kitten-meowing.jpg",
+           "orientation":"left",
+           "width":"150",
+           "height":"100",
+           "label":"Gata Flora",
+           "description":"Se la ponen: GRITA, Se la sacan: LLORA",
+           "link_type":"LINK",
+           "link":"http://www.catster.com/wp-content/uploads/2017/12/A-kitten-meowing.jpg",
+           "section":""
+         },
+         {
+           "type":"TITLE",
+           "align":"CENTER",
+           "label":"GetGata"
+         },
+         {
+           "type":"TEXT",
+           "align":"CENTER",
+           "label":"Volver a GetFlora"
+         }
+      ],
+      display: {
+        action:"getflora",
         label_submit:"Aceptar"
       }
       };
@@ -240,7 +281,7 @@ var getExample = function() {
         },
       ],
       display: {
-        action:"postNewData",
+        action:"getgata",
         label_submit:"Aceptar"
       }
       };
@@ -260,5 +301,6 @@ module.exports = {
 	setDB:setDB,
 	sendMsg:sendMsg,
 	getExample:getExample,
+	getExample2:getExample2,
 	getError:getError
 }
