@@ -49,7 +49,7 @@ var sendToSingle = function(db, token, msg) {
 }
 
 
-var createExample = function() {
+var getExample = function() {
 	var form = {
        type:"form",
        controls: [
