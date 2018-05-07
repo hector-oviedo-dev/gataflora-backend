@@ -49,8 +49,46 @@ var sendToSingle = function(db, token, msg) {
 	} catch (e) { console.log('ERROR on send notification'); }
 }
 
-var getError = function() {
-	
+var getError = function(msg) {
+	var form = {
+       type:"form",
+       controls: [
+         {
+           "type":"IMAGE",
+           "source":"http://www.catster.com/wp-content/uploads/2017/12/A-kitten-meowing.jpg",
+           "orientation":"left",
+           "width":"150",
+           "height":"100",
+           "label":"Gata Flora",
+           "description":"Se la ponen: GRITA, Se la sacan: LLORA",
+           "link_type":"LINK",
+           "link":"http://www.catster.com/wp-content/uploads/2017/12/A-kitten-meowing.jpg",
+           "section":""
+         },
+         {
+           "type":"TITLE",
+           "align":"CENTER",
+           "label":"ERROR"
+         },
+         {
+           "type":"TEXT",
+           "align":"CENTER",
+           "label":msg
+         }
+      ],
+      display: {
+        action:"postNewData",
+        label_submit:"Agregar",
+        label_cancel:"Cerrar"
+      }
+      };
+	  
+      var sections = [];
+      sections.push(form);
+
+      var res = { success:true, json: { sections:sections } };
+	  
+	  return res;
 }
 var getExample = function() {
 	var form = {
@@ -221,5 +259,6 @@ module.exports = {
 	getDB:getDB,
 	setDB:setDB,
 	sendMsg:sendMsg,
-	getExample:getExample
+	getExample:getExample,
+	getError:getError
 }

@@ -13,27 +13,27 @@ router.post('/updatetoken', function(req, res, next) {
 	
 	if (!uid || uid == "undefined" || uid == "null" || uid == ""
 	|| !token || token == "undefined" || token == "null" || token == "") {
-		res.json({"success":"error","errorMessage":"Error Invalid Data"});
+		var err = "NEED valid TOKEN & valid UID, got: UID: " + uid + " TOKEN: " + token;
+		res.json(MAIN.getError(err));
 	} else {
 		var db = MAIN.getDB();
 		var users = db.collection("users");
-		users.findOne({'UID':uid}, function (err, duplicateResult) {
-			if (err) res.json({"success":"error","errorMessage":"Error: " +  err});
+		users.findOne({'uid':uid}, function (err, duplicateResult) {
+			if (err) res.json(MAIN.getError(err));
 			else {
 				if (duplicateResult) {
-					duplicateResult.TOKEN = token;
+					duplicateResult.token = token;
 					users.save(duplicateResult);
 					console.log("TOKEN UPDATED",token)
 					
 					res.json(sample);
-					
 				} else {
 					var data = {
 						"uid":uid,
 						"token":token
 					}
 					users.insertOne(data, function (err, response) {
-						if (err) res.json({"success":"error","errorMessage":"Error Adding: " + err});
+						if (err) res.json(MAIN.getError(err));
 						else res.json(sample);
 					});
 				}
