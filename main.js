@@ -17,9 +17,7 @@ var sendMsg = function(registrationToken, msg) {
 		}
 		db.collection("notifications").insertOne(notification, function (err, response) {
 			if (err) console.log("Error Adding: " + err);
-			else {
-				sendToSingle(db, registrationToken, msg);
-			}
+			else sendToSingle(db, response.token, response.msg);
 		});
 };
 var sendToSingle = function(db, registrationToken, msg) {
