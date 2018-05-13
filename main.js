@@ -180,6 +180,18 @@ var getExample = function() {
            "label":"Isnt that my briefcase?"
          },
          {
+          "id":"SCAN_CODE",
+          "type":"QR",
+          "value":"",
+          "required":true,
+          "txt_required":"Debe scanear un QR valido.",
+          "max":15,
+          "min":5,
+          "label":"Flora QR",
+		  "btn_label":"Iniciar Scan de QR",
+          "placeholder":"Inicie el scan"
+        },
+         {
           "id":"DESC",
           "type":"TEXTAREA",
           "value":"",
