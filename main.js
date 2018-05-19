@@ -95,6 +95,11 @@ var getWidgetOne = function() {
            "label":msg
          }
       ]
+	}
+
+  var res = { success:true, json: widget };
+  
+  return res;
 }
 
 var getWidgetTwo = function() {
@@ -140,10 +145,11 @@ var getWidgetTwo = function() {
            "label":msg
          }
       ]
-	  
-      var res = { success:true, json: widget };
-	  
-	  return res;
+	}
+  
+  var res = { success:true, json: widget };
+  
+  return res;
 }
 
 var getError = function(msg) {
@@ -182,7 +188,7 @@ var getError = function(msg) {
       var sections = [];
       sections.push(form);
 	  
-      var res = { success:true, json: widget };
+      var res = { success:true, json: sections };
 	  
 	  return res;
 }
