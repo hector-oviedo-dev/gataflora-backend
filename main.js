@@ -97,6 +97,7 @@ var getWidgetTwo = function() {
        controls: [
 		{
           "id":"NAME",
+		  "update":false,
           "type":"INPUT",
           "value":"LA GATA FLORA",
           "input_type":"TEXT",
