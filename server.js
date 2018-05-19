@@ -48,6 +48,14 @@ var init = function(db) {
 	var getGata = require('./services/getgata');
 	app.use('/', getGata);
 	
+	//get WIDGET
+	var getWidget = require('./services/getwidget');
+	app.use('/', getWidget);
+	
+	//get WIDGET 2
+	var getWidgetTwo = require('./services/getwidgettwo');
+	app.use('/', getWidgetTwo);
+	
 	//INDEX
 	app.get('/', function(request, response) {
 	  response.send('GATA FLORA: Si se la ponen, GRITA, si se la sacan, LLORA');
