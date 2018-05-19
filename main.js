@@ -92,7 +92,7 @@ var getWidgetOne = function() {
          {
            "type":"TEXT",
            "align":"CENTER",
-           "label":msg
+           "label":"meow"
          }
       ]
 	}
@@ -142,7 +142,7 @@ var getWidgetTwo = function() {
          {
            "type":"TEXT",
            "align":"CENTER",
-           "label":msg
+           "label":"meow"
          }
       ]
 	}
@@ -248,7 +248,7 @@ var getExample2 = function() {
 }
 var getExample = function() {
 	
-	var widget = getWidgetOne();
+	var widget = this.getWidgetOne();
 	
 	var form = {
        type:"form",
