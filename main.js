@@ -61,6 +61,7 @@ var getWidgetOne = function() {
 		{
           "id":"NAME",
           "type":"INPUT",
+		  "update":false,
           "value":"",
           "input_type":"TEXT",
           "hidden":false,
@@ -71,6 +72,16 @@ var getWidgetOne = function() {
           "min":5,
           "label":"Nombre",
           "placeholder":"Ingrese su Nombre"
+        },
+		{
+          "id":"sarasa",
+          "type":"UDP",
+		  "update":true,
+          "value":true,
+          "enabled":true,
+          "required":false,
+          "label":"Refresh widgt",
+          "check":true
         },
          {
            "type":"IMAGE",
@@ -122,6 +133,7 @@ var getWidgetTwo = function() {
         },
          {
            "type":"IMAGE",
+		   "update":true,
            "source":"http://www.catster.com/wp-content/uploads/2017/12/A-kitten-meowing.jpg",
            "orientation":"left",
            "width":"150",
