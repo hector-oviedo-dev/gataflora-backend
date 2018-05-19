@@ -7,7 +7,7 @@ var router = express.Router();
 router.post('/getwidgettwo', function(req, res, next) {
 	console.log("GetGATA");
 	
-	var response = MAIN.getWidgetOne();
+	var response = { success:true, json: MAIN.getWidgetTwo() };
 	
 	res.json(response);
 });

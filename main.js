@@ -96,10 +96,8 @@ var getWidgetOne = function() {
          }
       ]
 	}
-
-  var res = { success:true, json: widget };
   
-  return res;
+  return widget;
 }
 
 var getWidgetTwo = function() {
@@ -147,9 +145,7 @@ var getWidgetTwo = function() {
       ]
 	}
   
-  var res = { success:true, json: widget };
-  
-  return res;
+  return widget;
 }
 
 var getError = function(msg) {
