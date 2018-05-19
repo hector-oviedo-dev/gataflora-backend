@@ -74,37 +74,15 @@ var getWidgetOne = function() {
           "placeholder":"Ingrese su Nombre"
         },
 		{
-          "id":"sarasa",
-          "type":"UDP",
+          "id":"UDP",
+          "type":"CHECKBOX",
 		  "update":true,
           "value":true,
           "enabled":true,
           "required":false,
           "label":"Refresh widgt",
           "check":true
-        },
-         {
-           "type":"IMAGE",
-           "source":"http://www.catster.com/wp-content/uploads/2017/12/A-kitten-meowing.jpg",
-           "orientation":"left",
-           "width":"150",
-           "height":"100",
-           "label":"Gata Flora",
-           "description":"Se la ponen: GRITA, Se la sacan: LLORA",
-           "link_type":"LINK",
-           "link":"http://www.catster.com/wp-content/uploads/2017/12/A-kitten-meowing.jpg",
-           "section":""
-         },
-         {
-           "type":"TITLE",
-           "align":"CENTER",
-           "label":"ERROR"
-         },
-         {
-           "type":"TEXT",
-           "align":"CENTER",
-           "label":"meow"
-         }
+        }
       ]
 	}
   
@@ -147,7 +125,7 @@ var getWidgetTwo = function() {
          {
            "type":"TITLE",
            "align":"CENTER",
-           "label":"ERROR"
+           "label":"nose"
          },
          {
            "type":"TEXT",
